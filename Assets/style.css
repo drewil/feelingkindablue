@@ -1,0 +1,74 @@
+:root { --base: 1em; }
+
+html {
+  background-color: #010029;
+}
+
+main {
+  top: 2vw;
+
+  display: flex;
+  flex-direction: column;
+	justify-content: center;
+  gap: calc(var(--base) * 4);
+}
+
+h1 {
+  font-family: Arial;
+  font-weight: 100;
+  font-size: calc(var(--base) * 8);
+	line-height: calc(var(--base) * 1);
+  color: #ffffff;
+  text-transform: titlecase;
+  text-align: center;
+  padding: 0%;
+margin: 0%;
+}
+
+h2 {
+  font-family: Arial;
+  font-weight: 100;
+  font-size: calc(var(--base) * 1);
+	line-height: calc(var(--base) * 1);
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.eyes {
+  position: relative;
+  max-width: 100%;
+
+	display: flex;
+	justify-content: center;
+  gap: 0px;
+}
+
+.eye {
+  width: 50vw;
+  height: 100px;
+  border-radius: 100%;
+  background-color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iris {
+  width: 90px;
+  height: 90px;
+  background-color: #007bff;
+  border-radius: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pupil {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color:#000000;
+}
