@@ -6,5 +6,3 @@ document.head.appendChild(markdownIt)
 
 // Okay, Are.na stuff!
 let channelSlug = 'feeling-kinda-blue' // The “slug” is just the end of the URL
-
-console.log('hi')
