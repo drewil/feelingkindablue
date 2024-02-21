@@ -16,7 +16,7 @@ let placeChannelInfo = (data) => {
 	// Target some elements in your HTML:
 	let channelTitle = document.getElementById('channel-title')
 	let channelDescription = document.getElementById('channel-description')
-	let channelCount = document.getElementById('channel-count') 
+	// let channelCount = document.getElementById('channel-count') 
 	let channelLink = document.getElementById('channel-link')
 	let channelOwner = document.getElementById('channel-owner')
 
@@ -57,8 +57,17 @@ let renderBlock = (block) => {
 	}
 
 	// Images!
-	else if (block.class == 'Image') {
-		// …up to you!
+	if (block.class == 'Image') {
+
+		let imageItem =
+			`
+				<li class="block block-image">
+					<figure>
+						<img src=${"block.image.large.url"} ${alt="block.title"} by ${block.user.full_name}>
+						<figcaption> ${block.title} <figcaption>
+				</figure>
+			`
+		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 	}
 
 	// Text!
@@ -76,7 +85,6 @@ let renderBlock = (block) => {
 			let videoItem =
 				`
 				<li class=block block--link container-left>
-					<p><em>Video</em></p>
 					<video controls src="${ block.attachment.url }"></video>
 				</li>
 				`
