@@ -16,14 +16,16 @@ let placeChannelInfo = (data) => {
 	// Target some elements in your HTML:
 	let channelTitle = document.getElementById('channel-title')
 	let channelDescription = document.getElementById('channel-description')
-	// let channelCount = document.getElementById('channel-count') 
+	let channelCount = document.getElementById('channel-count') 
 	let channelLink = document.getElementById('channel-link')
+	let channelOwner = document.getElementById('channel-owner')
 
 	// Then set their content/attributes to our data:
 	channelTitle.innerHTML = data.title
 	channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
 	// channelCount.innerHTML = data.length
 	channelLink.href = `https://www.are.na/channel/${channelSlug}`
+	channelOwner.innerHTML = data.owner.full_name
 }
 
 
@@ -40,11 +42,11 @@ let renderBlock = (block) => {
 		console.log(channelBlocks)
 			`
 			<li class=block block--link container-left>
-				<p><em>Link</em></p>
 				<picture>
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
 					<img src="${ block.image.original.url }">
+					<p><em>Link</em></p>
 				</picture>
 				<h3>${ block.title }</h3>
 				${ block.description_html }
@@ -127,8 +129,6 @@ let renderBlock = (block) => {
 		}
 	}
 }
-
-
 
 // It‘s always good to credit your work:
 let renderUser = (user, container) => { // You can have multiple arguments for a function!
