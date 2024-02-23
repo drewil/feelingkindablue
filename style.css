@@ -17,18 +17,6 @@ header {
 	gap: calc(var(--base) * 0.5);
 }
 
-h2 {
-	font-family: editorialoldregular;
-	font-weight: 200;
-	font-size: calc(var(--base) * 6);
-	line-height: calc(var(--base) * 1);
-	color: #ffffff;
-	text-transform: lowercase;
-	text-align: right;
-
-	display: block;
-}
-
 h1 {
 	font-family: editorialolditalic;
 	font-weight: 100;
@@ -41,21 +29,28 @@ h1 {
 	display: block;
 }
 
+h2 {
+	font-family: editorialoldregular;
+	font-weight: 200;
+	font-size: calc(var(--base) * 6);
+	line-height: calc(var(--base) * 1);
+	color: #ffffff;
+	text-transform: lowercase;
+	text-align: right;
+
+	display: block;
+}
+
 main {
-	bottom: 0;
 	z-index: 1000;
 
 	display: flex;
 	flex-direction: column;
 
+	position: sticky;
+	top: 0;
 	margin-right: 25%;
 	padding: 0em 1em;
-}
-
-.main-sticky {
-	position: fixed;
-	top: 0;
-	z-index: 1000;
 }
 
 .text-button {
@@ -70,13 +65,24 @@ main {
 	color: rgb(255, 255, 255);
 }
 
+h3,
+.arrowicon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 h3 {
 	font-family: editorialolditalic;
 	font-weight: 300;
 	font-size: calc(var(--base) * 2);
-	line-height: calc(var(--base) * 1.125);
+	line-height: calc(var(--base) * 1.5);
 	text-transform: lowercase;
 	text-align: left;
+}
+
+.arrow-icon {
+	height: calc(var(--base) * 2);
+	color: #ffffff;
 }
 
 /* p {
@@ -101,7 +107,7 @@ h3 {
 } */
 
 .illustration {
-	height: calc(var(--base) * 15);
+	height: calc(var(--base) * 16);
 
 	position: relative;
 
@@ -111,7 +117,7 @@ h3 {
 
 .eyebrow {
 	width: 100%;
-	height: 75%;
+	height: 70%;
 
 	background: rgb(25, 25, 50);
 	top: 0;
@@ -128,7 +134,7 @@ h3 {
 
 .eye {
 	width: 100%;
-	height: 50%;
+	height: 60%;
 	border-radius: 50%;
 	transform: scaleX(1);
 	background-color: #ffffff;
@@ -202,26 +208,18 @@ h3 {
 	margin-right: 25%;
 
 	position: relative;
+	padding: 1em;
 }
 
 .blocks	{
-	padding: 1em;
-
-	display: grid;
-	gap: calc(var(--base) * 1);
-
-	grid-template-columns: 3fr 2fr;
-}
-
-/* .block-image {
-	position: relative;
-	height: 100%;
+	border-radius: 50%;
 
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	gap: calc(var(--base) * 1);
-} */
+}
+
+
 
 /* .content {
 	height: 100%;
@@ -249,10 +247,10 @@ h4 {
 	color: rgb(25, 25, 50);
 	text-transform: lowercase;
 	text-align: left;
-}
+} */
 
 .eyecon {
 	height: calc(var(--base) * 2);
 	right: 0;
 	margin-top: -0.3em;
-} */
+}

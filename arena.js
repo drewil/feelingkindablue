@@ -61,9 +61,9 @@ let renderBlock = (block) => {
 
 		let imageItem =
 			`
-				<li class="block block-image">
+				<li class="block block--image">
 					<figure>
-						<img src=${"block.image.large.url"} ${alt="block.title"} by ${block.user.full_name}>
+						<img src=${block.image.large.url} alt= ${block.title} by ${block.user.full_name}>
 						<figcaption> ${block.title} <figcaption>
 				</figure>
 			`
@@ -114,7 +114,7 @@ let renderBlock = (block) => {
 	}
 
 	// Linked media…
-	else if (block.class == 'Media') {
+	if (block.class == 'Media') {
 		let embed = block.embed.type
 
 		// Linked video!
@@ -128,7 +128,6 @@ let renderBlock = (block) => {
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
-			// More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 		}
 
 		// Linked audio!
