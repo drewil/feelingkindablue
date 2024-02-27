@@ -1,0 +1,73 @@
+@media screen and (min-width:375px) {
+
+:root { --base: 1em; }
+
+html {
+	background: rgb(25, 25, 50);
+
+	width: 100%;
+}
+
+header {
+	padding: 1em;
+	margin-left: 25%;
+	display: flex;
+	flex-direction: column;
+	gap: calc(var(--base) * 0.5);
+}
+
+h1 {
+	font-size: calc(var(--base) * 1.2);
+	line-height: calc(var(--base) * 1.125);
+}
+
+h2 {
+	font-size: calc(var(--base) * 4);
+	line-height: calc(var(--base) * 1);
+}
+
+main {
+	margin-right: 25%;
+	padding: 0em 1em;
+}
+
+.text-button {
+	padding: 1em 0em;
+}
+
+h3 {
+	font-size: calc(var(--base) * 2);
+	line-height: calc(var(--base) * 1.5);
+}
+
+.arrowicon {
+	height: calc(var(--base) * 2);
+	margin-left: 10px;
+}
+
+.illustration {
+	height: calc(var(--base) * 16);
+}
+
+.image-button {
+	width: calc(var(--base) * 4);
+	height: calc(var(--base) * 4);
+
+	bottom: calc(var(--base) * 1);
+	right: calc(var(--base) * 1);
+}
+
+.container {
+	margin-top: -8em;
+	margin-right: 25%;
+	padding: 1em;
+}
+
+.blocks	{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: calc(var(--base) * 1);
+}
+
+}

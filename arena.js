@@ -64,7 +64,6 @@ let renderBlock = (block) => {
 				<li class="block block--image">
 					<figure>
 						<img src=${block.image.large.url} alt= ${block.title} by ${block.user.full_name}>
-						<figcaption> ${block.title} <figcaption>
 				</figure>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
