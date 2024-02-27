@@ -38,13 +38,13 @@ main {
 }
 
 .text-button {
-	color: rgb(0, 125, 250);
+	color: rgb(0, 255, 255);
 	background: rgb(25, 25, 50);
   cursor: pointer;
 }
 
 .text-button:hover {
-	color: rgb(0, 255, 255);
+	color: rgb(0, 125, 250);
 }
 
 h3 {

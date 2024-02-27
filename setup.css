@@ -1,5 +1,3 @@
-@media screen and (min-width:320px) {
-
 :root { --base: 1em; }
 
 html {
@@ -22,7 +20,7 @@ h1 {
 }
 
 h2 {
-	font-size: calc(var(--base) * 4);
+	font-size: calc(var(--base) * 6);
 	line-height: calc(var(--base) * 1);
 }
 
@@ -68,6 +66,4 @@ h3 {
 	flex-direction: column;
 	align-items: center;
 	gap: calc(var(--base) * 1);
-}
-
 }
