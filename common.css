@@ -3,6 +3,10 @@
 @font-face { font-family: Inter; src:url(assets/Inter-VariableFont_slnt,wght.ttf); }
 
 html {
+	background: rgb(20, 20, 60);
+}
+
+main {
 	background: rgb(25, 25, 50);
 }
 
@@ -177,6 +181,7 @@ h3 {
 }
 
 .container {
+	background: rgb(25, 25, 50);
 	position: relative;
 	height: auto;
 	overflow: hidden;
