@@ -1,4 +1,4 @@
-@media screen and (min-width:360px) {
+@media screen and (max-width:720px) {
 	:root { --base: 1em; }
 
 	header {
@@ -40,6 +40,10 @@
 
 	.illustration {
 	height: calc(var(--base) * 16);
+	}
+
+	.second {
+		display: none;
 	}
 
 	.image-button {
