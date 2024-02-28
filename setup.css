@@ -119,12 +119,15 @@
 
 	.container {
 	margin-top: -8em;
-	margin-right: 25%;
+	margin-right: 30%;
 	padding: 1em;
 	}
 
-	.blocks	{
-	display: grid;
-	grid-template-columns: 1fr 2fr
+	.blocks {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		grid-auto-rows: minmax(200px, auto);
+		gap: 10px;
+		position: relative;
 	}
 }
