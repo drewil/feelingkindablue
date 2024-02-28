@@ -36,25 +36,24 @@ let renderBlock = (block) => {
 	let channelBlocks = document.getElementById('channel-blocks')
 
 
-	// Links!
-	if (block.class == 'Link') {
-		let linkItem =
-		console.log(channelBlocks)
-			`
-			<li class=block block--link container-left>
-				<picture>
-					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
-					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
-					<img src="${ block.image.original.url }">
-					<p><em>Link</em></p>
-				</picture>
-				<h3>${ block.title }</h3>
-				${ block.description_html }
-				<p><a href="${ block.source.url }">See the original ↗</a></p>
-			</li>
-			`
-		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
-	}
+// Links!
+if (block.class == 'Link') {
+	let linkItem = `
+			<li class="link-container" onclick="toggleBlockDetails(this)">
+		<picture>
+				<source media="(max-width: 480px)" srcset="${block.image.thumb.url}">
+				<source media="(max-width: 720px)" srcset="${block.image.large.url}">
+				<img src="${block.image.original.url}">
+		</picture>
+		// <div class="block-details">
+		// 		<h3>${block.title}</h3>
+		// 		${block.description_html}
+		// 		<p><a href="${block.source.url}">See the original ↗</a></p>
+		// </div>
+</li>
+	`;
+	channelBlocks.insertAdjacentHTML('beforeend', linkItem);
+}
 
 	// Images!
 	if (block.class == 'Image') {
@@ -64,38 +63,60 @@ let renderBlock = (block) => {
 				<li class="block block--image">
 					<figure>
 						<img src=${block.image.large.url} alt= ${block.title} by ${block.user.full_name}>
-				</figure>
+					</figure>
+				</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 	}
 
 	// Text!
 	else if (block.class == 'Text') {
-		// …up to you!
+		console.log(block)
+		let textItem =
+		`
+			<li class="block block--text">
+				<div class="text-content">
+					<a href="${block.attachment.url}">
+						<h4>${ block.title }</h4>
+						<p>${ block.content_html }</p>
+					</a>
+				</div>
+			</li>
+		`
+		channelBlocks.insertAdjacentHTML('beforeend', textItem)
 	}
 
 	// Uploaded (not linked) media…
 	else if (block.class == 'Attachment') {
-		let attachment = block.attachment.content_type // Save us some repetition
+		let attachment = block.attachment.content_type
 
-		// Uploaded videos!
-		if (attachment.includes('video')) {
-			// …still up to you, but we’ll give you the `video` element:
-			let videoItem =
-				`
-				<li class=block block--link container-left>
-					<video controls src="${ block.attachment.url }"></video>
+	// Uploaded videos!
+	if (attachment.includes('Video')) {
+		let videoItem =
+			`
+			<li class=link container>
+				<video controls src="${ block.attachment.url }"></video>
+			</li>
+			`
+		channelBlocks.insertAdjacentHTML('beforeend', videoItem)
+	}
+
+	// Uploaded PDFs!
+	else if (attachment.includes('pdf')) {
+		let pdfItem =
+			`
+				<li class="pdf-container">
+					<div class="pdf-content">
+						<a href="${block.attachment.url}">
+							<figure>
+								<img controls src="${block.image.large.url}" alt="${block.title}">
+							</figure>
+						</a>
+					</div?>
 				</li>
-				`
-			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
-			// More on video, like the `autoplay` attribute:
-			// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
-		}
-
-		// Uploaded PDFs!
-		else if (attachment.includes('pdf')) {
-			// …up to you!
-		}
+			`
+		channelBlocks.insertAdjacentHTML('beforeend', pdfItem);
+	}
 
 		// Uploaded audio!
 		else if (attachment.includes('audio')) {
@@ -122,7 +143,6 @@ let renderBlock = (block) => {
 			let linkedVideoItem =
 				`
 				<li>
-					<p><em>Linked Video</em></p>
 					${ block.embed.html }
 				</li>
 				`
@@ -136,20 +156,18 @@ let renderBlock = (block) => {
 	}
 }
 
-// It‘s always good to credit your work:
-let renderUser = (user, container) => { // You can have multiple arguments for a function!
-	let userAddress =
-		`
-		<address>
-			<img src="${ user.avatar_image.display }">
-			<h3>${ user.first_name }</h3>
-			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
-		</address>
-		`
-	container.insertAdjacentHTML('beforeend', userAddress)
-}
+// Get the grid container
+const container = document.querySelector('.blocks');
 
+// Randomize gap, padding, and margin values
+const gap = Math.floor(Math.random() * 10 + 10); // Random gap between 10 and 20
+const padding = Math.floor(Math.random() * 10 + 5); // Random padding between 5 and 15
+const margin = Math.floor(Math.random() * 10 + 5); // Random margin between 5 and 15
 
+// Set CSS custom properties
+container.style.setProperty('--gap', `${gap}px`);
+container.style.setProperty('--padding', padding);
+container.style.setProperty('--margin', margin);
 
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })

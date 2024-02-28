@@ -2,129 +2,106 @@
 @font-face { font-family: EditorialOldItalic; src:url(assets/PPEditorialOldVariable-Italic.ttf); }
 @font-face { font-family: Inter; src:url(assets/Inter-VariableFont_slnt,wght.ttf); }
 
-html {
-	background: rgb(20, 20, 60);
+body {
+	background: linear-gradient(to bottom, rgb(25, 25, 50), rgb(25, 25, 50))
 }
 
-main {
-	background: rgb(25, 25, 50);
+header, .null-first, .description, .eyebrow-container {
+	background-color: rgb(25, 25, 50);
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+h1, h2 {
+	color: #ffffff;
+	text-transform: lowercase;
+	text-align: right;
 }
 
 h1 {
 	font-family: editorialolditalic;
 	font-weight: 100;
-  color: #ffffff;
-	text-transform: lowercase;
-	text-align: right;
-	display: block;
 }
 
 h2 {
 	font-family: editorialoldregular;
 	font-weight: 200;
-  color: #ffffff;
-	text-transform: lowercase;
-	text-align: right;
+
 	display: block;
 }
 
 main {
 	z-index: 1000;
+
 	display: flex;
 	flex-direction: column;
+
 	position: sticky;
 	top: 0;
 }
 
-.text-button .arrowicon {
-	display: inline-block;
-	vertical-align: middle;
+.description {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+
+	cursor: pointer;
 }
 
-.text-button {
-	color: rgb(0, 255, 255);
-	background: rgb(25, 25, 50);
-  cursor: pointer;
-}
-
-.text-button:hover {
+.description:hover {
 	color: rgb(0, 125, 250);
 }
 
-h3 {
+p {
 	font-family: editorialolditalic;
 	font-weight: 300;
+	color: rgb(0, 255, 255);
 	text-transform: lowercase;
-	text-align: left;
-	color: #ffffff;
+	text-align: left;	
 }
 
 .arrowicon {
-	color: rgb(0, 125, 250);
+	width: calc(var(--base) * 2);
+	height: auto;
+	vertical-align: middle;
 }
 
-/* p {
-	font-family: inter;
-	font-weight: 300;
-	font-size: calc(var(--base) * 1.2);
-	line-height: calc(var(--base) * 1.15);
-	color: #ffffff;
-	text-transform: lowercase;
-	text-align: left;
-} */
-
-/* h4 {
-	font-family: editorialoldregular;
-	font-weight: 300;
-	font-size: calc(var(--base) * 1.5);
-	line-height: calc(var(--base) * 1.25);
-	color: #ffffff;
-	text-transform: lowercase;
-	text-align: left;
-	height: 100%;
-} */
-
-.eyes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.illustration {
+.eyebrow-container,
+.eye-container {
+	width: 100%;
 	position: relative;
+
 	display: flex;
 	flex-direction: row;
-  height: calc(var(--base) * 16);
 }
 
-.eyebrow {
+.eyebrow, .hiddeneyebrow {
 	width: 100%;
 	height: 70%;
 
-	background: rgb(25, 25, 50);
-	top: 0;
-
 	background-image: repeating-linear-gradient(
 		90deg,
-		#ffffff 0em,
-		#ffffff 1em,
-		#191932 1em,
-		#191932 2em
+		#ffffff calc(var(--base) * 0),
+		#ffffff calc(var(--base) * 1),
+		#191932 calc(var(--base) * 1),
+		#191932 calc(var(--base) * 2)
 	);
 	background-repeat: repeat-x;
 }
 
-.eye {
+.eye, .hiddeneye {
+	margin-top: calc(var(--base) * -4);
+
 	width: 100%;
-	height: 60%;
 	border-radius: 50%;
 	transform: scaleX(1);
 	background-color: #ffffff;
 	overflow: hidden;
-
-	position: absolute;
-	overflow: hidden;
-	bottom: 0;
 }
 
 .iris {
@@ -137,8 +114,6 @@ h3 {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-
-	transition: height 0.5s ease;
 }
 
 .pupil {
@@ -153,13 +128,13 @@ h3 {
 	transform: translate(-50%, -50%);
 }
 
-.image-button {
-	width: calc(var(--base) * 4);
-	height: calc(var(--base) * 4);
-
-	position: fixed;
+/* .magic-button {
 	z-index: 1;
 
+	position: fixed;
+
+	width: calc(var(--base) * 4);
+	height: calc(var(--base) * 4);
 	overflow: hidden;
 	border-radius: 50%;
 	background: #ffffff;
@@ -167,13 +142,23 @@ h3 {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
 	cursor: pointer;
-}
+} */
+
+/* .eyeconopen, .eyeconclose {
+	width: 1em;
+	height: auto;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+} */
 
 .container {
-	background: rgb(25, 25, 50);
-	position: relative;
 	height: auto;
 	overflow: hidden;
+
+	position: relative;
 }
 
 .blocks	{
@@ -181,43 +166,36 @@ h3 {
 }
 
 .blocks li {
-	filter: blur(2px); /* Default Gaussian blur filter */
-	transition: filter 0.3s, background-image 0.3s;
-}
-
-.block::after {
-	background-image: linear-gradient(to bottom, rgba(25, 25, 50, 1), rgba(25, 25, 50, 0));
+	background-image: linear-gradient(to bottom, rgb(25, 25, 50), rgb(25, 25, 50));
 }
 
 .blocks li:hover {
 	filter: none;
-	background-image: linear-gradient(to bottom, rgba(25, 25, 50, 0), rgba(25, 25, 50, 1));
 }
 
-/* .content {
-	height: 100%;
-
-	position: absolute;
-	flex-direction: column;
-	gap: calc(var(--base) * 1);
-
-	padding: calc(var(--base) * 1) calc(var(--base) * 1) calc(var(--base) * 2) calc(var(--base) * 1);
-	background-color: rgb(0, 150, 250);
+.block-item {
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	transition: filter 0.3s ease;
 }
 
-.caption {
-	display: flex;
-	flex-direction: row;
-	justify-content: left;
-	gap: calc(var(--base) * 1);
+h3 {
+	font-family: editorialoldregular;
+	font-weight: 300;
+	font-size: calc(var(--base) * 1.5);
+	line-height: calc(var(--base) * 1.15);
+	color: #ffffff;
+	text-transform: lowercase;
+	text-align: left;
 }
 
 h4 {
 	font-family: inter;
-	font-weight: 500;
-	font-size: calc(var(--base) * 0.8);
-	line-height: calc(var(--base) * 1);
-	color: rgb(25, 25, 50);
+	font-weight: 300;
+	font-size: calc(var(--base) * 1);
+	line-height: calc(var(--base) * 1.15);
+	color: #ffffff;
 	text-transform: lowercase;
 	text-align: left;
-} */
+}
